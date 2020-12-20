@@ -1,0 +1,6 @@
+maven-build:
+  stage: build
+  tags:
+    - ci
+  image: maven:3-jdk-11
+  script: mvn clean package -Dskip.surefire.tests
