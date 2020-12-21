@@ -13,5 +13,3 @@ maven-build:
   before_script:
     - cd BackEnd
   script: mvn clean install -Dskip.surefire.tests
-
-

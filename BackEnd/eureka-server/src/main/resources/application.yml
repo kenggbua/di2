@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    eureka-connection-idle-timeout-seconds: 10
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+endpoints:
+  sensitive: false
