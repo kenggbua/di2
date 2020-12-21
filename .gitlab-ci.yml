@@ -6,7 +6,14 @@ stages:
 #  - start
 #  - tests
 
+
 maven-build:
   stage: build
+  tags:
+    - ci
   image: maven:3-jdk-11
+  before_script:
+    - cd BackEnd
   script: mvn clean install -Dskip.surefire.tests
+
+
