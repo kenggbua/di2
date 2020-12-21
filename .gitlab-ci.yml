@@ -1,3 +1,6 @@
+services:
+  - docker:19.03
+
 stages:
   - build
 #  - start
