@@ -1,9 +1,15 @@
+services:
+  - docker:19.03
+
 stages:
   - build
 #  - start
 #  - tests
 
+
 maven-build:
   stage: build
   image: maven:3-jdk-11
+  before_script:
+    - cd BackEnd
   script: mvn clean install -Dskip.surefire.tests
