@@ -9,8 +9,6 @@ stages:
 
 maven-build:
   stage: build
-  tags:
-    - ci
   image: maven:3-jdk-11
   before_script:
     - cd BackEnd
