@@ -7,7 +7,7 @@ eureka:
     fetchRegistry: true
     healthcheck:
       enabled: true
-    eureka-connection-idle-timeout-seconds: 1
+    eureka-connection-idle-timeout-seconds: 10
   server:
     waitTimeInMsWhenSyncEmpty: 0
 
