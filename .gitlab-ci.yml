@@ -12,7 +12,7 @@ maven-build:
     - cd BackEnd
   script: mvn clean install -Dskip.surefire.tests
 
-build:
+angular-build:
     stage: build
     image: trion/ng-cli
     before_script:
@@ -26,7 +26,7 @@ build:
     tags:
         - docker
 
-test:karma:
+angular-test-karma:
     stage: test
     image: trion/ng-cli-karma
     allow_failure: false
@@ -35,7 +35,7 @@ test:karma:
     tags:
         - docker
 
-test:e2e:
+angular-test-e2e:
     stage: test
     image: trion/ng-cli-e2e
     allow_failure: false
@@ -44,7 +44,7 @@ test:e2e:
     tags:
         - docker
 
-test:lint:
+angular-test-lint:
     stage: test
     image: trion/ng-cli
     script:
@@ -52,7 +52,7 @@ test:lint:
     tags:
         - docker
 
-lint:sonar:
+angular-lint-sonar:
     stage: test
     image: trion/ng-cli
     script:
