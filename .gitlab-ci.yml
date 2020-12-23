@@ -35,6 +35,7 @@ angular-test-karma:
         - angular-build
     before_script:
         - cd FrontEnd/angular
+        - ls
     script:
         - ng test
     tags:
