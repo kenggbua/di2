@@ -38,7 +38,12 @@ maven-verify:
   before_script:
     - cd backend
   script: 
-    - mvn verify
+    - mvn verify -Dmaven.repo.local=maven_repository
+  cache:
+    key: maven_repository
+    paths:
+      - backend/maven_repository
+    policy: pull
     
 angular-build:
     stage: build
