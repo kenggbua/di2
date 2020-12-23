@@ -20,7 +20,7 @@ angular-build:
         - npm ci
     script:
         - ng build
-        - cd dist
+        - cd dist/angular
         - ls
     artifacts:
         expire_in: 1 day
