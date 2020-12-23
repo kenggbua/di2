@@ -31,6 +31,8 @@ angular-test-karma:
     stage: test
     image: trion/ng-cli-karma
     allow_failure: false
+    dependencies:
+        - angular-build
     before_script:
         - cd FrontEnd/angular
     script:
