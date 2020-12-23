@@ -23,8 +23,7 @@ angular-build:
     artifacts:
         expire_in: 1 day
         paths:
-            - node_modules/
-            - dist/
+            - /dist
     tags:
         - docker
 
