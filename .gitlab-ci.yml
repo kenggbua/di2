@@ -75,7 +75,7 @@ angular-test-lint:
     tags:
         - docker
 
-angular-lint-sonar:
+.angular-lint-sonar:
     stage: test
     image: trion/ng-cli
     needs: ["angular-build"]
