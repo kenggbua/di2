@@ -20,11 +20,10 @@ angular-build:
         - npm ci
     script:
         - ng build
-        - cd dist/angular
-        - ls
     artifacts:
         expire_in: 1 day
         paths:
+            - node_modules/
             - dist/
     tags:
         - docker
