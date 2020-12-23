@@ -13,6 +13,24 @@ maven-build:
   script: 
     - mvn clean install -Dskip.surefire.tests
 
+maven-test:
+  stage: test
+  image: maven:3-jdk-11
+  needs: ["maven-build"]
+  before_script:
+    - cd backend
+  script: 
+    - mvn test
+
+maven-verify:
+  stage: test
+  image: maven:3-jdk-11
+  needs: ["maven-build"]
+  before_script:
+    - cd backend
+  script: 
+    - mvn verify
+    
 angular-build:
     stage: build
     image: trion/ng-cli
