@@ -20,6 +20,7 @@ angular-build:
         - npm ci
     script:
         - ng build
+        - ls
     artifacts:
         expire_in: 1 day
         paths:
