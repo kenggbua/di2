@@ -10,7 +10,8 @@ maven-build:
   image: maven:3-jdk-11
   before_script:
     - cd BackEnd
-  script: mvn clean install -Dskip.surefire.tests
+  script: 
+    - mvn clean install -Dskip.surefire.tests
 
 angular-build:
     stage: build
@@ -20,10 +21,9 @@ angular-build:
         - npm ci
     script:
         - ng build
-    artifacts:
-        expire_in: 1 day
+    cache:
         paths:
-            - FrontEnd/angular/dist
+        - FrontEnd/angular/node_modules
     tags:
         - docker
 
@@ -31,8 +31,7 @@ angular-test-karma:
     stage: test
     image: trion/ng-cli-karma
     allow_failure: false
-    dependencies:
-        - angular-build
+    needs: ["angular-build"]
     before_script:
         - cd FrontEnd/angular
         - ls
@@ -45,6 +44,7 @@ angular-test-e2e:
     stage: test
     image: trion/ng-cli-e2e
     allow_failure: false
+    needs: ["angular-build"]
     before_script:
         - cd FrontEnd/angular
     script:
@@ -55,6 +55,7 @@ angular-test-e2e:
 angular-test-lint:
     stage: test
     image: trion/ng-cli
+    needs: ["angular-build"]
     before_script:
         - cd FrontEnd/angular
     script:
@@ -65,6 +66,7 @@ angular-test-lint:
 angular-lint-sonar:
     stage: test
     image: trion/ng-cli
+    needs: ["angular-build"]
     before_script:
         - cd FrontEnd/angular
     script:
