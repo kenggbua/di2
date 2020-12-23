@@ -1,7 +1,7 @@
 version: '3'
 services:
   eureka:
-    build: eureka-server
+    build: eureka
     ports:
       - 8761:8761
 
@@ -11,5 +11,50 @@ services:
       - eureka
     ports:
       - 8080:8080
+    depends_on:
+      - eureka
+
+  schedule:
+    build: schedule
+    links:
+      - eureka
+    ports:
+      - 8762:8762
+    depends_on:
+      - eureka
+
+  matching:
+    build: matching
+    links:
+      - eureka
+    ports:
+      - 8763:8763
+    depends_on:
+      - eureka
+
+  notification:
+    build: notification
+    links:
+      - eureka
+    ports:
+      - 8764:8764
+    depends_on:
+      - eureka
+
+  user:
+    build: user
+    links:
+      - eureka
+    ports:
+      - 8765:8765
+    depends_on:
+      - eureka
+
+  authentication:
+    build: authentication
+    links:
+      - eureka
+    ports:
+      - 8766:8766
     depends_on:
       - eureka

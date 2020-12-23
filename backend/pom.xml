@@ -10,15 +10,20 @@
     </parent>
 
     <groupId>com.couchplanner</groupId>
-    <artifactId>BackEnd</artifactId>
+    <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CouchPlaner</name>
-    <description>Couch</description>
+    <name>backend</name>
+    <description>backend</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>eureka-server</module>
+        <module>eureka</module>
         <module>gateway</module>
+        <module>schedule</module>
+        <module>matching</module>
+        <module>notification</module>
+        <module>user</module>
+        <module>authentication</module>
     </modules>
 
     <properties>
