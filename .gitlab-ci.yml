@@ -22,6 +22,7 @@ angular-build:
     script:
         - ng build
     cache:
+        key: node_modules
         paths:
         - FrontEnd/angular/node_modules
     tags:
@@ -37,6 +38,10 @@ angular-test-karma:
         - ls
     script:
         - ng test
+    cache:
+        key: node_modules
+        paths:
+        - FrontEnd/angular/node_modules
     tags:
         - docker
 
