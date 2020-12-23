@@ -37,10 +37,6 @@ angular-test-karma:
         - cd FrontEnd/angular
     script:
         - ng test --watch false
-    cache:
-        key: node_modules
-        paths:
-        - FrontEnd/angular/node_modules
     tags:
         - docker
 
@@ -53,10 +49,6 @@ angular-test-e2e:
         - cd FrontEnd/angular
     script:
         - ng e2e
-    cache:
-        key: node_modules
-        paths:
-        - FrontEnd/angular/node_modules
     tags:
         - docker
 
@@ -68,10 +60,6 @@ angular-test-lint:
         - cd FrontEnd/angular
     script:
         - ng lint
-    cache:
-        key: node_modules
-        paths:
-        - FrontEnd/angular/node_modules
     tags:
         - docker
 
@@ -95,10 +83,6 @@ angular-test-lint:
             -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts
             -Dsonar.tests=src/app
             -Dsonar.test.inclusions=**/*.spec.ts
-    cache:
-        key: node_modules
-        paths:
-        - FrontEnd/angular/node_modules
     tags:
         - docker
 
