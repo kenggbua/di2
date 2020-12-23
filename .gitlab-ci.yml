@@ -36,7 +36,7 @@ angular-test-karma:
     before_script:
         - cd FrontEnd/angular
     script:
-        - ng test --progress false
+        - ng test --watch false
     cache:
         key: node_modules
         paths:
