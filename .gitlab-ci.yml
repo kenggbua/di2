@@ -23,7 +23,7 @@ angular-build:
     artifacts:
         expire_in: 1 day
         paths:
-            - /dist
+            - FrontEnd/angular/dist
     tags:
         - docker
 
