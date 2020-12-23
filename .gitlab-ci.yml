@@ -31,6 +31,8 @@ angular-test-karma:
     stage: test
     image: trion/ng-cli-karma
     allow_failure: false
+    before_script:
+        - cd FrontEnd/angular
     script:
         - ng test
     tags:
@@ -40,6 +42,8 @@ angular-test-e2e:
     stage: test
     image: trion/ng-cli-e2e
     allow_failure: false
+    before_script:
+        - cd FrontEnd/angular
     script:
         - ng e2e
     tags:
@@ -48,6 +52,8 @@ angular-test-e2e:
 angular-test-lint:
     stage: test
     image: trion/ng-cli
+    before_script:
+        - cd FrontEnd/angular
     script:
         - ng lint
     tags:
@@ -56,6 +62,8 @@ angular-test-lint:
 angular-lint-sonar:
     stage: test
     image: trion/ng-cli
+    before_script:
+        - cd FrontEnd/angular
     script:
         - npm install -g sonarqube-scanner
         - >
