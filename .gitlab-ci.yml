@@ -11,7 +11,11 @@ maven-build:
   before_script:
     - cd backend
   script: 
-    - mvn clean install -Dskip.surefire.tests
+    - mvn clean install -Dskip.surefire.tests -Dmaven.repo.local=maven_repository
+  cache:
+    key: maven_repository
+    paths:
+      - backend/maven_repository
 
 maven-test:
   stage: test
@@ -21,6 +25,11 @@ maven-test:
     - cd backend
   script: 
     - mvn test
+  cache:
+    key: maven_repository
+    paths:
+      - backend/maven_repository
+    policy: pull
 
 maven-verify:
   stage: test
@@ -43,8 +52,6 @@ angular-build:
         key: node_modules
         paths:
         - frontend/angular/node_modules
-    tags:
-        - docker
 
 angular-test-karma:
     stage: test
