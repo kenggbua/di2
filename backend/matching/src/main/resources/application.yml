@@ -1,14 +1,20 @@
+spring:
+  application:
+    name: matching
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name:
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: update #create for drop previous data
 
 server:
   port: 8762
 
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 50
-    statusPageUrlPath: /info
-    healthCheckUrlPath: /health
 
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
+

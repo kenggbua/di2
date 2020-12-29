@@ -4,17 +4,7 @@ spring:
   cloud:
     config:
       enabled: false
-    gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "http://localhost:4200, http://localhost:4201, http://gecko2-dev.iid.aau.at:8080, http://gecko2-dev.iid.aau.at:4200,http://gecko2-dev.iid.aau.at:4201, http://localhost:8080"
-            allowedHeaders: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
+
 
 eureka:
   client:
