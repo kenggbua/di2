@@ -18,43 +18,74 @@ services:
     build: schedule
     links:
       - eureka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/schedule_matching?autoReconnect=true&useSSL=true
     ports:
       - 8762:8762
     depends_on:
       - eureka
+      - gateway
 
   matching:
     build: matching
     links:
       - eureka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/schedule_matching?autoReconnect=true&useSSL=true
     ports:
       - 8763:8763
     depends_on:
       - eureka
+      - gateway
 
   notification:
     build: notification
     links:
       - eureka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/user_notification?autoReconnect=true&useSSL=true
     ports:
       - 8764:8764
     depends_on:
       - eureka
+      - gateway
 
   user:
     build: user
     links:
       - eureka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/user_notification?autoReconnect=true&useSSL=true
     ports:
       - 8765:8765
     depends_on:
       - eureka
+      - gateway
 
   authentication:
     build: authentication
     links:
       - eureka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/auth_db?autoReconnect=true&useSSL=true
     ports:
       - 8766:8766
     depends_on:
       - eureka
+      - mysql
+      - gateway
+
+  mysql:
+    container_name: mysql
+    image: library/mysql:8
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: user
+      MYSQL_DATABASE: 'mysql'
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: 123456
+    security_opt:
+      - seccomp:unconfined
+
+
