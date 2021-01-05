@@ -1,4 +1,4 @@
-package com.couchplanner.user.Entities;
+package com.couchplanner.user.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "auth_users_test", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
-public class Test {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,7 +35,7 @@ public class Test {
 
 
 
-    public Test() {
+    public UserEntity() {
         // Default Constructor
     }
 
