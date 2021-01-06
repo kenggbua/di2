@@ -25,6 +25,7 @@ services:
     depends_on:
       - eureka
       - gateway
+      - mysql
 
   matching:
     build: matching
@@ -37,6 +38,7 @@ services:
     depends_on:
       - eureka
       - gateway
+      - mysql
 
   notification:
     build: notification
@@ -49,6 +51,7 @@ services:
     depends_on:
       - eureka
       - gateway
+      - mysql
 
   user:
     build: user
@@ -61,11 +64,14 @@ services:
     depends_on:
       - eureka
       - gateway
+      - mysql
 
   authentication:
     build: authentication
     links:
       - eureka
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/auth_db?autoReconnect=true&useSSL=true
     ports:
@@ -85,6 +91,8 @@ services:
       MYSQL_DATABASE: 'mysql'
       MYSQL_PASSWORD: user
       MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
     security_opt:
       - seccomp:unconfined
 
