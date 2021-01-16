@@ -25,7 +25,7 @@ public class UserService {
         // example of an query thats not in the repository
         Optional<UserEntity> user2 = userRepository.findById(1);
         user.orElseThrow(UserNotFoundException::new);
-
+        user2.orElseThrow(UserNotFoundException::new);
         return user.get();
     }
 

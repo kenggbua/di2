@@ -1,6 +1,7 @@
 package com.couchplanner.user.dtos;
 
 import com.couchplanner.user.entities.UserEntity;
+import com.couchplanner.user.messages.ErrorMessage;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

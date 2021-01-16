@@ -22,8 +22,7 @@ public class UserController {
 
     @PutMapping("/")
     public ResponseEntity<?> createUser(@Valid @RequestBody UserDetailsDto dto) {
-        UserEntity userEntity = userService.convertUserDetailsDtoToUserEntity(dto);
-        UserEntity user = userService.createUser(userEntity);
+        UserEntity user = userService.createUser(userService.convertUserDetailsDtoToUserEntity(dto));
 
         return ResponseEntity.ok(SuccessMessage.USER_REGISTERED_SUCCESS.getMessage());
     }
